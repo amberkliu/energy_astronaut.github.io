@@ -216,7 +216,7 @@ var transition = {
   type: jsPsychInstructions,
   pages: [
     '<div class="instructions-text"> You are all set to go! In the following task, you will learn additional information about the astronauts\' missions. Please read carefully before answering the questions.</div>',
-    '<div class="instructions-text">On this mission, multiple astronauts are tasked with exploring the <b>same locations</b> independently on different times of the day.</div>'],
+    '<div class="instructions-text">On this mission, multiple astronauts are tasked with exploring the <b>same locations</b> independently at different times of the day.</div>'],
     allow_backward: false,
     show_clickable_nav:true,
     button_label_previous: '<',
@@ -226,7 +226,7 @@ var transition = {
 var belief_out1_bg = {
     type: jsPsychInstructions,
     pages: [
-      '<div class="instructions-text">The <span style="color: blue;">BLUE</span> astronaut and <span style="color: red;">RED</span> astronaut are on mission today. <span style="color: blue;">BLUE</span> and <span style="color: red;">RED</span> have the same mission location, therefore the same starting point, as shown below.</div>' + '<div><img src="img/red_blue_startloc.png" width="380" height="280"></div>',
+      '<div class="instructions-text">The <span style="color: blue;">BLUE</span> astronaut and <span style="color: red;">RED</span> astronaut are on the mission today. <span style="color: blue;">BLUE</span> and <span style="color: red;">RED</span> have the same mission location, therefore the same starting point, as shown below.</div>' + '<div><img src="img/red_blue_startloc.png" width="380"></div>',
       '<div class="instructions-text">On this day, <span style="color: red;">RED</span> was due for a year-long cryosleep, so was feeling <b>extremely tired</b>. And <span style="color: blue;">BLUE</span> had just woken up from a year-long cryosleep, so was feeling <b>extremely energetic</b>.</div>' + '<br>' + 
       '<div style="display: flex; justify-content: center; gap: 100px;">' +
         '<div style="text-align: center;">' +
@@ -259,8 +259,8 @@ var belief_out1_q = {
           <img src="img/blue.jpg" width="100">
         </div>
       </div>*/
-      `<div class="instructions-text"> Both of them decided to stop by the cave before coming back to home base. </div>
-    <img src="img/red_blue_map_energy.png" width="700" height="250"> +
+      `<div class="instructions-text"> The maps below show the route each astronaut took. Both of them stopped by the cave before coming back to home base. </div>
+    <img src="img/red_blue_map_energy.png" width="700">
     <div class="instructions-text"> Which astronaut, <span style="color: red;">RED</span> or <span style="color: blue;">BLUE</span>, do you think had a stronger belief that a mineral was in the cave?</div>`,
     choices: ['img/red.jpg','img/blue.jpg'],
     button_html: (choice)=>`<img style="cursor:pointer;margin: 10px;" src = "${choice}" width="100" />`
@@ -269,7 +269,7 @@ var belief_out1_q = {
 var belief_out2_bg = {
     type: jsPsychInstructions,
     pages: [
-      '<div class="instructions-text">The <span style="color: green;">GREEN</span> astronaut and <span style="color: #FFD700;">YELLOW</span> astronaut are on mission today. <span style="color: green;">GREEN</span> and <span style="color: #FFD700;">YELLOW</span> have the same mission location, therefore the same starting point, as shown below.</div>' + '<div><img src="img/green_yellow_startloc.png" width="380"></div>',
+      '<div class="instructions-text">The <span style="color: green;">GREEN</span> astronaut and <span style="color: #FFD700;">YELLOW</span> astronaut are on the mission today. <span style="color: green;">GREEN</span> and <span style="color: #FFD700;">YELLOW</span> have the same mission location, therefore the same starting point, as shown below.</div>' + '<div><img src="img/green_yellow_startloc.png" width="380"></div>',
       '<div class="instructions-text">On this day, <span style="color: green;">GREEN</span> was due for a year-long cryosleep, so was feeling <b>extremely tired</b>. And <span style="color: #FFD700;">YELLOW</span> had just woken up from a year-long cryosleep, so was feeling <b>extremely energetic</b>.</div>' + '<br>' + 
       '<div style="display: flex; justify-content: center; gap: 100px;">' +
         '<div style="text-align: center;">' +
@@ -291,10 +291,42 @@ var belief_out2_bg = {
 var belief_out2_q = {
     type: jsPsychHtmlButtonResponse,
     stimulus: 
-      `<div class="instructions-text"> Both of them decided to stop by the cave before coming back to home base. </div>
-    <img src="img/green_yellow_map_energy.png" width="700"> +
+      `<div class="instructions-text"> The maps below show the route each astronaut took. Both of them stopped by the cave before coming back to home base.</div>
+    <img src="img/green_yellow_map_energy.png" width="700">
     <div class="instructions-text"> Which astronaut, <span style="color: green;">GREEN</span> or <span style="color: #FFD700;">YELLOW</span>, do you think had a stronger belief that a mineral was in the cave?</div>`,
     choices: ['img/green.jpg','img/yellow.jpg'],
+    button_html: (choice)=>`<img style="cursor:pointer;margin: 10px;" src = "${choice}" width="100" />`
+};
+
+var belief_on1_bg = {
+    type: jsPsychInstructions,
+    pages: [
+      '<div class="instructions-text">The <span style="color: blueviolet;">PURPLE</span> astronaut and <span style="color: orange;">ORANGE</span> astronaut are on the mission today. <span style="color: blueviolet;">PURPLE</span> and <span style="color: orange;">ORANGE</span> have the same mission location, therefore the same starting point, as shown below.</div>' + '<div><img src="img/purple_orange_startloc.png" width="380"></div>',
+      '<div class="instructions-text">On this day, <span style="color: blueviolet;">PURPLE</span> was due for a year-long cryosleep, so was feeling <b>extremely tired</b>. And <span style="color: orange;">ORANGE</span> had just woken up from a year-long cryosleep, so was feeling <b>extremely energetic</b>.</div>' + '<br>' + 
+      '<div style="display: flex; justify-content: center; gap: 100px;">' +
+        '<div style="text-align: center;">' +
+          '<img src="img/tired.png" height="80"><br>' +
+          '<img src="img/purple.jpg" width="100">' +
+        '</div>' +
+        '<div style="text-align: center;">' +
+          '<img src="img/energetic.png" height="80"><br>' +
+          '<img src="img/orange.jpg" width="100">' +
+        '</div>' +
+      '</div>'
+],
+  allow_backward: true,
+    show_clickable_nav:true,
+    button_label_previous: '<',
+    button_label_next: '>'
+};
+
+var belief_on1_q = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: 
+      `<div class="instructions-text"> The maps below show the route each astronaut took. Both of them stopped by the cave before coming back to home base.</div>
+    <img src="img/purple_orange_map_energy.png" width="700">
+    <div class="instructions-text"> Which astronaut, <span style="color: blueviolet;">PURPLE</span> or <span style="color: orange;">ORANGE</span>, do you think had a stronger belief that a mineral was in the cave?</div>`,
+    choices: ['img/purple.jpg','img/orange.jpg'],
     button_html: (choice)=>`<img style="cursor:pointer;margin: 10px;" src = "${choice}" width="100" />`
 };
 
@@ -405,7 +437,7 @@ jsPsych.data.addProperties({
 
 const timeline = [
             preload, 
-            consent,
+           // consent,
             intro,
             compcheck1,
             compcheck1_feedback,
@@ -416,11 +448,11 @@ const timeline = [
             transition,
             belief_out1_bg,
             belief_out1_q,
-            belief_out2_bg,
-            belief_out2_q,
-          debrief,
-          feedback_demographics,
-          save_data
+            belief_on1_bg,
+            belief_on1_q,
+        //  debrief,
+        //  feedback_demographics,
+         // save_data
         ];
 
 jsPsych.run(timeline);
